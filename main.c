@@ -143,7 +143,6 @@ int main() {
         
         printf("Results saved to result.txt\n");
         
-        // Освобождаем память
         free(input_line);
         free(numbers);
     }
