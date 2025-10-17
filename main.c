@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -5,15 +6,15 @@
 #include <string.h>
 #include <errno.h>
 
-#define MAX_NUMBERS 100
-#define BUFFER_SIZE 1024
-
 int main() {
     int pipe_fd[2];
     pid_t child_pid;
-    char input_line[BUFFER_SIZE];
-    float numbers[MAX_NUMBERS];
+    char *input_line = NULL;
+    size_t line_size = 0;
+    ssize_t line_length;
+    float *numbers = NULL;
     int count;
+    int capacity = 10;
     
     if (pipe(pipe_fd) == -1) { 
         perror("pipe");
@@ -72,17 +73,31 @@ int main() {
     } else {
         close(pipe_fd[0]);
         
+        numbers = malloc(capacity * sizeof(float));
+        if (numbers == NULL) {
+            perror("malloc");
+            exit(EXIT_FAILURE);
+        }
+        
         printf("Enter numbers separated by spaces (empty line to exit):\n");
         
-        while (fgets(input_line, sizeof(input_line), stdin)) {
-            if (input_line[0] == '\n') {
+        while ((line_length = getline(&input_line, &line_size, stdin)) != -1) {
+            if (line_length == 1 && input_line[0] == '\n') {
                 break;
             }
             
             count = 0;
             char *token = strtok(input_line, " \t\n");
             
-            while (token != NULL && count < MAX_NUMBERS) {
+            while (token != NULL) {
+                if (count >= capacity) {
+                    capacity *= 2;
+                    numbers = realloc(numbers, capacity * sizeof(float));
+                    if (numbers == NULL) {
+                        perror("realloc");
+                        exit(EXIT_FAILURE);
+                    }
+                }
                 char *endptr;
                 float num = strtof(token, &endptr);
                 
@@ -127,6 +142,10 @@ int main() {
         }
         
         printf("Results saved to result.txt\n");
+        
+        // Освобождаем память
+        free(input_line);
+        free(numbers);
     }
     
     return 0;
