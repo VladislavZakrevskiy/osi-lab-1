@@ -1,88 +1,49 @@
-4752  execve("./lab1_program", ["./lab1_program"], 0xffffe449ee28 /* 27 vars */) = 0
-4752  brk(NULL)                         = 0xaaaaff37f000
-4752  mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff963ce000
-4752  faccessat(AT_FDCWD, "/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
-4752  openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
-4752  newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=13184, ...}, AT_EMPTY_PATH) = 0
-4752  mmap(NULL, 13184, PROT_READ, MAP_PRIVATE, 3, 0) = 0xffff963ca000
-4752  close(3)                          = 0
-4752  openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
-4752  read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0\267\0\1\0\0\0\360u\2\0\0\0\0\0"..., 832) = 832
-4752  newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=1661968, ...}, AT_EMPTY_PATH) = 0
-4752  mmap(NULL, 1830504, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff961da000
-4752  mmap(0xffff961e0000, 1764968, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xffff961e0000
-4752  munmap(0xffff961da000, 24576)     = 0
-4752  munmap(0xffff9638f000, 40552)     = 0
-4752  mprotect(0xffff9636e000, 61440, PROT_NONE) = 0
-4752  mmap(0xffff9637d000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18d000) = 0xffff9637d000
-4752  mmap(0xffff96383000, 48744, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff96383000
-4752  close(3)                          = 0
-4752  set_tid_address(0xffff963cef50)   = 4752
-4752  set_robust_list(0xffff963cef60, 24) = 0
-4752  rseq(0xffff963cf620, 0x20, 0, 0xd428bc00) = 0
-4752  mprotect(0xffff9637d000, 16384, PROT_READ) = 0
-4752  mprotect(0xaaaadc2a1000, 4096, PROT_READ) = 0
-4752  mprotect(0xffff963d3000, 8192, PROT_READ) = 0
-4752  prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-4752  munmap(0xffff963ca000, 13184)     = 0
-4752  pipe2([3, 4], 0)                  = 0
-4752  clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xffff963cef50) = 4753
-4752  close(3)                          = 0
-4753  set_robust_list(0xffff963cef60, 24 <unfinished ...>
-4752  newfstatat(1, "",  <unfinished ...>
-4753  <... set_robust_list resumed>)    = 0
-4752  <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
-4753  close(4 <unfinished ...>
-4752  getrandom( <unfinished ...>
-4753  <... close resumed>)              = 0
-4752  <... getrandom resumed>"\x3f\x99\x6a\xe5\x93\xf6\xa2\x38", 8, GRND_NONBLOCK) = 8
-4753  getrandom( <unfinished ...>
-4752  brk(NULL <unfinished ...>
-4753  <... getrandom resumed>"\xfa\x49\xcf\x6f\xec\xdd\xef\x9f", 8, GRND_NONBLOCK) = 8
-4752  <... brk resumed>)                = 0xaaaaff37f000
-4753  brk(NULL <unfinished ...>
-4752  brk(0xaaaaff3a0000 <unfinished ...>
-4753  <... brk resumed>)                = 0xaaaaff37f000
-4752  <... brk resumed>)                = 0xaaaaff3a0000
-4753  brk(0xaaaaff3a0000 <unfinished ...>
-4752  write(1, "Enter numbers separated by space"..., 56 <unfinished ...>
-4753  <... brk resumed>)                = 0xaaaaff3a0000
-4752  <... write resumed>)              = 56
-4753  openat(AT_FDCWD, "result.txt", O_WRONLY|O_CREAT|O_TRUNC, 0666 <unfinished ...>
-4752  newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
-4752  read(0,  <unfinished ...>
-4753  <... openat resumed>)             = 4
-4753  read(3,  <unfinished ...>
-4752  <... read resumed>"1  2 3 4 5 6\n", 1024) = 13
-4752  write(4, "\6\0\0\0", 4)           = 4
-4753  <... read resumed>"\6\0\0\0", 4)  = 4
-4752  write(4, "\0\0\200?\0\0\0@\0\0@@\0\0\200@\0\0\240@\0\0\300@", 24 <unfinished ...>
-4753  read(3,  <unfinished ...>
-4752  <... write resumed>)              = 24
-4753  <... read resumed>"\0\0\200?\0\0\0@\0\0@@\0\0\200@\0\0\240@\0\0\300@", 24) = 24
-4752  write(1, "Sent 6 numbers to child process\n", 32 <unfinished ...>
-4753  newfstatat(4, "",  <unfinished ...>
-4752  <... write resumed>)              = 32
-4753  <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=0, ...}, AT_EMPTY_PATH) = 0
-4752  read(0,  <unfinished ...>
-4753  write(4, "Numbers: 1.00 2.00 3.00 4.00 5.0"..., 52) = 52
-4753  newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
-4753  write(1, "Child process calculated sum: 21"..., 36) = 36
-4753  read(3,  <unfinished ...>
-4752  <... read resumed>"\n", 1024)     = 1
-4752  write(4, "\0\0\0\0", 4)           = 4
-4753  <... read resumed>"\0\0\0\0", 4)  = 4
-4752  close(4 <unfinished ...>
-4753  close(4 <unfinished ...>
-4752  <... close resumed>)              = 0
-4752  wait4(-1,  <unfinished ...>
-4753  <... close resumed>)              = 0
-4753  close(3)                          = 0
-4753  exit_group(0)                     = ?
-4753  +++ exited with 0 +++
-4752  <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 4753
-4752  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=4753, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
-4752  write(1, "Child process finished with exit"..., 41) = 41
-4752  write(1, "Results saved to result.txt\n", 28) = 28
-4752  exit_group(0)                     = ?
-4752  +++ exited with 0 +++
+execve("./main", ["./main"], 0xffffe9fd4f50 /* 28 vars */) = 0
+brk(NULL)                               = 0xaaaadd0c3000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff97ed8000
+faccessat(AT_FDCWD, "/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=15296, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 15296, PROT_READ, MAP_PRIVATE, 3, 0) = 0xffff97ed4000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0\267\0\1\0\0\0\340u\2\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=1637400, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 1805928, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff97cea000
+mmap(0xffff97cf0000, 1740392, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xffff97cf0000
+munmap(0xffff97cea000, 24576)           = 0
+munmap(0xffff97e99000, 40552)           = 0
+mprotect(0xffff97e78000, 61440, PROT_NONE) = 0
+mmap(0xffff97e87000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x187000) = 0xffff97e87000
+mmap(0xffff97e8d000, 48744, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff97e8d000
+close(3)                                = 0
+set_tid_address(0xffff97ed8f50)         = 1778
+set_robust_list(0xffff97ed8f60, 24)     = 0
+rseq(0xffff97ed9620, 0x20, 0, 0xd428bc00) = 0
+mprotect(0xffff97e87000, 16384, PROT_READ) = 0
+mprotect(0xaaaad4db1000, 4096, PROT_READ) = 0
+mprotect(0xffff97edd000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0xffff97ed4000, 15296)           = 0
+pipe2([3, 4], 0)                        = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xffff97ed8f50) = 1779
+close(3)                                = 0
+getrandom("\x62\xd6\x0e\x27\xc8\xf2\xd7\x80", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0xaaaadd0c3000
+brk(0xaaaadd0e4000)                     = 0xaaaadd0e4000
+newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+write(1, "Enter numbers separated by space"..., 56) = 56
+newfstatat(0, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+read(0, "1 2 3 4 5\n", 1024)            = 10
+write(4, "\5\0\0\0", 4)                 = 4
+write(4, "\0\0\200?\0\0\0@\0\0@@\0\0\200@\0\0\240@", 20) = 20
+write(1, "Sent 5 numbers to child process\n", 32) = 32
+read(0, "\n", 1024)                     = 1
+write(4, "\0\0\0\0", 4)                 = 4
+close(4)                                = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1779, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 1779
+write(1, "Child process finished with exit"..., 41) = 41
+write(1, "Results saved to result.txt\n", 28) = 28
+exit_group(0)                           = ?
++++ exited with 0 +++

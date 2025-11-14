@@ -1,12 +1,12 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99
 TARGET = lab1_program
-SOURCE = main.c
+SOURCES = main.c parent.c child.c
 
 all: $(TARGET)
 
-$(TARGET): $(SOURCE)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCE)
+$(TARGET): $(SOURCES)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
 
 clean:
 	rm -f $(TARGET) result.txt
