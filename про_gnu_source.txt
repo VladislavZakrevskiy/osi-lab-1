@@ -1,0 +1,27 @@
+1) _GNU_SOURCE:
+- _DEFAULT_SOURCE (_BSD_SOURCE + _SVID_SOURCE в старых версиях)
+- _POSIX_C_SOURCE=200809L
+- _XOPEN_SOURCE=700
+- GNU-специфичные расширения
+
+2) 1990-е: 
+#define _GNU_SOURCE
+BSD + System V + GNU
+
+Чичас:
+#define _GNU_SOURCE  
+POSIX + X/Open + BSD + System V + GNU
+
+3) #define _DEFAULT_SOURCE  // _BSD_SOURCE + _SVID_SOURCE
+
+4) Что дает: 
+#define _GNU_SOURCE
+#include <string.h>
+
+char *strcasestr(const char *haystack, const char *needle);
+char *strndup(const char *s, size_t n);
+void *memrchr(const void *s, int c, size_t n);
+char *strchrnul(const char *s, int c);
+int strverscmp(const char *s1, const char *s2);
+size_t strlcpy(char *dst, const char *src, size_t size);
+size_t strlcat(char *dst, const char *src, size_t size);
