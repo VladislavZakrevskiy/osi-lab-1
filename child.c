@@ -22,9 +22,10 @@ void child_process(int read_fd) {
         if (numbers_count == 0) {
             break;
         }
+        ssize_t number_bytes = sizeof(float) * numbers_count;
         
         float numbers[numbers_count];
-        if (read(read_fd, numbers, sizeof(float) * numbers_count) <= 0) {
+        if (read(read_fd, numbers, number_bytes) != number_bytes) {
             perror("read");
             break;
         }
